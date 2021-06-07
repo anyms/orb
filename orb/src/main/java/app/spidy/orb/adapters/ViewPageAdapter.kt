@@ -8,7 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import app.spidy.orb.data.Tab
 
-class ViewPageAdapter(private val tabs: List<Tab>, activity: FragmentActivity): FragmentStateAdapter(activity) {
+class ViewPageAdapter(private val tabs: ArrayList<Tab>, activity: FragmentActivity): FragmentStateAdapter(activity) {
     override fun getItemCount(): Int = tabs.size
 
     override fun createFragment(position: Int): Fragment {
@@ -17,5 +17,15 @@ class ViewPageAdapter(private val tabs: List<Tab>, activity: FragmentActivity): 
 
     override fun containsItem(itemId: Long): Boolean {
         return tabs.map { it.tabId }.contains(itemId)
+    }
+
+    override fun getItemId(position: Int): Long {
+        return tabs[position].tabId
+    }
+
+    fun removeItem(index: Int) {
+        tabs.removeAt(index)
+        notifyItemRemoved(index)
+        notifyItemRangeChanged(index, tabs.size)
     }
 }

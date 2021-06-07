@@ -8,7 +8,7 @@ class TabPageTransformer(private val pageTranslationX: Float): ViewPager2.PageTr
 
     override fun transformPage(page: View, position: Float) {
         page.translationX = -pageTranslationX * position
-        page.scaleY = 0.8f
+//        page.scaleY = 0.8f
 
         // gives the animation
         // page.scaleY = 1 - (0.25f * abs(position))

@@ -42,10 +42,11 @@ class WebViewFragment : Fragment() {
         binding.webView.webViewClient = WebViewClient()
         binding.webView.webChromeClient = WebChromeClient()
 
-        binding.webView.loadUrl("https://google.com")
+        binding.webView.loadUrl(requireArguments().getString("url")!!)
 
         binding.overlayView.setOnClickListener {
             requireContext().toast("Touched!")
+            binding.overlayView.visibility = View.GONE
         }
 
         return binding.root

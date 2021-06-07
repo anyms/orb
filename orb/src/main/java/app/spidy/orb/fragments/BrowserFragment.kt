@@ -8,16 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import app.spidy.kotlinutils.debug
 import app.spidy.kotlinutils.onUiThread
 import app.spidy.orb.Browser
 import app.spidy.orb.R
 import app.spidy.orb.adapters.ViewPageAdapter
 import app.spidy.orb.data.Tab
 import app.spidy.orb.databinding.FragmentBrowserBinding
-import app.spidy.orb.utils.HorizontalMarginItemDecoration
-import app.spidy.orb.utils.ResetMarginItemDecoration
-import app.spidy.orb.utils.ResetPageTransformer
-import app.spidy.orb.utils.TabPageTransformer
+import app.spidy.orb.utils.*
 import kotlin.concurrent.thread
 
 class BrowserFragment : Fragment() {
@@ -36,6 +34,12 @@ class BrowserFragment : Fragment() {
         binding.viewPager.adapter = adapter
         binding.viewPager.offscreenPageLimit = 100
         binding.viewPager.clipToPadding = false
+
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                browser.currentIndex = position
+            }
+        })
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.UP) {
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -46,9 +50,11 @@ class BrowserFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
+                adapter.removeItem(viewHolder.adapterPosition)
+                val switchTo = viewHolder.adapterPosition - 1
+                binding.viewPager.currentItem = if (switchTo < 0) 0 else switchTo
             }
-        }).attachToRecyclerView(binding.viewPager)
+        }).attachToRecyclerView(binding.viewPager.getRecyclerView())
 
         tabsItemDecoration = HorizontalMarginItemDecoration(
             requireContext(),
@@ -56,8 +62,8 @@ class BrowserFragment : Fragment() {
         )
         resetTabMode()
         browser.newTab("https://google.com")
-        browser.newTab("https://google.com")
-        browser.newTab("https://google.com")
+        browser.newTab("https://github.com")
+        browser.newTab("https://youtube.com")
         switchToTabMode()
 
         return binding.root
