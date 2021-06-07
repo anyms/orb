@@ -51,4 +51,9 @@ class WebViewFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun onPause() {
+        binding.webView.onPause()
+        super.onPause()
+    }
 }

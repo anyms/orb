@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import app.spidy.kotlinutils.debug
-import app.spidy.kotlinutils.onUiThread
 import app.spidy.orb.Browser
 import app.spidy.orb.R
 import app.spidy.orb.adapters.ViewPageAdapter
@@ -34,6 +33,7 @@ class BrowserFragment : Fragment() {
         binding.viewPager.adapter = adapter
         binding.viewPager.offscreenPageLimit = 100
         binding.viewPager.clipToPadding = false
+        binding.viewPager.isUserInputEnabled = false
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -50,8 +50,8 @@ class BrowserFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter.removeItem(viewHolder.adapterPosition)
                 val switchTo = viewHolder.adapterPosition - 1
+                adapter.removeItem(viewHolder.adapterPosition)
                 binding.viewPager.currentItem = if (switchTo < 0) 0 else switchTo
             }
         }).attachToRecyclerView(binding.viewPager.getRecyclerView())
@@ -60,11 +60,14 @@ class BrowserFragment : Fragment() {
             requireContext(),
             R.dimen.viewpager_current_item_horizontal_margin
         )
-        resetTabMode()
         browser.newTab("https://google.com")
         browser.newTab("https://github.com")
         browser.newTab("https://youtube.com")
-        switchToTabMode()
+
+
+        binding.clearTabsBtn.setOnClickListener {
+            switchToTabMode()
+        }
 
         return binding.root
     }
@@ -72,6 +75,10 @@ class BrowserFragment : Fragment() {
     fun getBrowser() = browser
 
     private fun switchToTabMode() {
+        for (tab in browser.tabs) {
+            tab.fragment.onPause()
+        }
+
         val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
         val currentItemHorizontalMarginPx = resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin)
         val pageTranslationX = nextItemVisiblePx + currentItemHorizontalMarginPx

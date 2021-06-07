@@ -27,5 +27,6 @@ class ViewPageAdapter(private val tabs: ArrayList<Tab>, activity: FragmentActivi
         tabs.removeAt(index)
         notifyItemRemoved(index)
         notifyItemRangeChanged(index, tabs.size)
+        notifyDataSetChanged()
     }
 }

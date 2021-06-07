@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -13,7 +12,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -38,13 +37,9 @@ android {
 }
 
 dependencies {
-    def hiper_version = "2.0.1"
-    implementation "com.github.pugapps.hiper:http:$hiper_version"
-    implementation "com.github.pugapps.hiper:utils:$hiper_version"
-
-    def hilt_version = "2.35"
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    def hiper_version = "2.0.2"
+    implementation "com.github.anyms.hiper:http:$hiper_version"
+    implementation "com.github.anyms.hiper:util:$hiper_version"
 
     implementation 'org.adblockplus:adblock-android-webview:4.3.0'
 
