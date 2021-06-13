@@ -21,7 +21,7 @@ allprojects {
 Add the dependency to your **app level** `build.gradle`
 
 ```css
-implementation 'com.github.defapps:orb:1.0.1'
+implementation 'com.github.okbash:orb:1.0.1'
 ```
 
 ### Configure
