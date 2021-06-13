@@ -1,6 +1,6 @@
-package app.spidy.orb.data
+package sh.fearless.orb.data
 
-import app.spidy.orb.fragments.OrbWebViewFragment
+import sh.fearless.orb.fragments.OrbWebViewFragment
 
 data class Tab(
     var title: String,

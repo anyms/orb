@@ -1,8 +1,8 @@
-package app.spidy.orb.utils
+package sh.fearless.orb.utils
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
-import app.spidy.orb.R
+import sh.fearless.orb.R
 import kotlin.math.abs
 
 class TabPageTransformer(private val pageTranslationX: Float): ViewPager2.PageTransformer {

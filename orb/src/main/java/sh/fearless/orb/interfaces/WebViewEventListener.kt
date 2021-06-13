@@ -1,4 +1,4 @@
-package app.spidy.orb.interfaces
+package sh.fearless.orb.interfaces
 
 import android.graphics.Bitmap
 import android.webkit.WebView

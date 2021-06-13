@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
-    tools:context=".fragments.OrbWebViewFragment">
+    tools:context="sh.fearless.orb.fragments.OrbWebViewFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"

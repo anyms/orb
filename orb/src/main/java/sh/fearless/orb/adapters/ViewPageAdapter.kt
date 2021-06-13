@@ -1,10 +1,10 @@
-package app.spidy.orb.adapters
+package sh.fearless.orb.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import app.spidy.orb.data.Tab
+import sh.fearless.orb.data.Tab
 
 class ViewPageAdapter(
     private val tabs: ArrayList<Tab>, childFragmentManager: FragmentManager, lifecycle: Lifecycle

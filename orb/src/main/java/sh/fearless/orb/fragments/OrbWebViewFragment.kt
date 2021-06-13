@@ -1,4 +1,4 @@
-package app.spidy.orb.fragments
+package sh.fearless.orb.fragments
 
 import android.annotation.SuppressLint
 import android.content.ClipboardManager
@@ -16,20 +16,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import app.spidy.kotlinutils.debug
 import app.spidy.kotlinutils.onUiThread
-import app.spidy.orb.R
-import app.spidy.orb.databinding.OrbFragmentWebViewBinding
-import app.spidy.orb.interfaces.BrowserListener
-import app.spidy.orb.interfaces.WebViewEventListener
-import app.spidy.orb.webclients.ChromeClient
-import app.spidy.orb.webclients.WebClient
+import sh.fearless.orb.databinding.OrbFragmentWebViewBinding
+import sh.fearless.orb.interfaces.BrowserListener
+import sh.fearless.orb.interfaces.WebViewEventListener
+import sh.fearless.orb.webclients.ChromeClient
+import sh.fearless.orb.webclients.WebClient
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.*
+import sh.fearless.orb.R
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL

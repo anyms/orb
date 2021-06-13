@@ -1,4 +1,4 @@
-package app.spidy.orb.utils
+package sh.fearless.orb.utils
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2

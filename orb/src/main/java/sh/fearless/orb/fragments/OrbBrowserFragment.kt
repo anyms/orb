@@ -1,4 +1,4 @@
-package app.spidy.orb.fragments
+package sh.fearless.orb.fragments
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -15,12 +15,16 @@ import app.spidy.kotlinutils.gone
 import app.spidy.kotlinutils.invisible
 import app.spidy.kotlinutils.isDarkThemeOn
 import app.spidy.kotlinutils.visible
-import app.spidy.orb.Browser
-import app.spidy.orb.R
-import app.spidy.orb.adapters.ViewPageAdapter
-import app.spidy.orb.databinding.OrbFragmentBrowserBinding
-import app.spidy.orb.interfaces.BrowserListener
-import app.spidy.orb.utils.*
+import sh.fearless.orb.Browser
+import sh.fearless.orb.R
+import sh.fearless.orb.adapters.ViewPageAdapter
+import sh.fearless.orb.databinding.OrbFragmentBrowserBinding
+import sh.fearless.orb.interfaces.BrowserListener
+import sh.fearless.orb.utils.*
+import sh.fearless.orb.utils.HorizontalMarginItemDecoration
+import sh.fearless.orb.utils.ResetPageTransformer
+import sh.fearless.orb.utils.TabPageTransformer
+import sh.fearless.orb.utils.getRecyclerView
 
 
 class OrbBrowserFragment : Fragment(), BrowserListener {

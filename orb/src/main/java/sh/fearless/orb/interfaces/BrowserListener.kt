@@ -1,7 +1,6 @@
-package app.spidy.orb.interfaces
+package sh.fearless.orb.interfaces
 
 import android.webkit.WebView
-import app.spidy.orb.Browser
 
 interface BrowserListener {
     fun onPageTap() {}

@@ -3,7 +3,7 @@
     package="app.spidy.orbexample">
 
     <application
-        android:name=".App"
+        android:name="app.spidy.orbexample.App"
         android:fullBackupContent="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +13,7 @@
         android:theme="@style/Theme.OrbExample">
         <activity
             android:configChanges="orientation|screenSize"
-            android:name=".activities.MainActivity">
+            android:name="app.spidy.orbexample.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,9 +1,9 @@
-package app.spidy.orb.webclients
+package sh.fearless.orb.webclients
 
 import android.graphics.Bitmap
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import app.spidy.orb.interfaces.WebViewEventListener
+import sh.fearless.orb.interfaces.WebViewEventListener
 
 class WebClient(private val listener: WebViewEventListener): WebViewClient() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {

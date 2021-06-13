@@ -1,4 +1,4 @@
-package app.spidy.orb.utils
+package sh.fearless.orb.utils
 
 import android.content.Context
 import android.graphics.Rect

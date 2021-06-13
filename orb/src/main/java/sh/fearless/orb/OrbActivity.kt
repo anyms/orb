@@ -1,9 +1,9 @@
-package app.spidy.orb
+package sh.fearless.orb
 
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
-import app.spidy.orb.fragments.OrbBrowserFragment
-import app.spidy.orb.interfaces.BrowserListener
+import sh.fearless.orb.fragments.OrbBrowserFragment
+import sh.fearless.orb.interfaces.BrowserListener
 
 open class OrbActivity: AppCompatActivity(), BrowserListener {
     private var browserFragment: OrbBrowserFragment? = null

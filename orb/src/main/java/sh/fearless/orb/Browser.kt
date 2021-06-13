@@ -1,10 +1,10 @@
-package app.spidy.orb
+package sh.fearless.orb
 
 import android.os.Bundle
 import android.webkit.WebView
-import app.spidy.orb.adapters.ViewPageAdapter
-import app.spidy.orb.data.Tab
-import app.spidy.orb.fragments.OrbWebViewFragment
+import sh.fearless.orb.adapters.ViewPageAdapter
+import sh.fearless.orb.data.Tab
+import sh.fearless.orb.fragments.OrbWebViewFragment
 
 class Browser(
     private val getAdapter: () -> ViewPageAdapter

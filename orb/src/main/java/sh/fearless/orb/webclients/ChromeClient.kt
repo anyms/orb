@@ -1,4 +1,4 @@
-package app.spidy.orb.webclients
+package sh.fearless.orb.webclients
 
 import android.content.Context
 import android.content.pm.ActivityInfo
@@ -12,7 +12,7 @@ import android.webkit.JsResult
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
-import app.spidy.orb.interfaces.WebViewEventListener
+import sh.fearless.orb.interfaces.WebViewEventListener
 
 
 class ChromeClient(private val context: Context, private val listener: WebViewEventListener): WebChromeClient() {
