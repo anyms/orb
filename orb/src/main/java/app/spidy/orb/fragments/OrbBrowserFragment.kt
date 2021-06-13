@@ -1,6 +1,5 @@
 package app.spidy.orb.fragments
 
-import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
@@ -104,8 +103,8 @@ class OrbBrowserFragment : Fragment(), BrowserListener {
     }
 
     private fun switchToTabMode() {
-        binding.tabModeToolbar.visible()
         binding.clearTabsBtn.visible()
+        binding.tabModeToolbar.visible()
         binding.appBarLayout.gone()
 
         val window = requireActivity().window
@@ -123,8 +122,8 @@ class OrbBrowserFragment : Fragment(), BrowserListener {
         binding.viewPager.addItemDecoration(tabsItemDecoration)
         binding.viewPager.isUserInputEnabled = true
         for (tab in browser.tabs) {
-            tab.fragmentOrb.pauseWebView()
-            tab.fragmentOrb.overlayView.visibility = View.VISIBLE
+            tab.fragment.pauseWebView()
+            tab.fragment.overlayView.visibility = View.VISIBLE
         }
     }
 
@@ -179,8 +178,7 @@ class OrbBrowserFragment : Fragment(), BrowserListener {
     }
 
     override fun onProgressChanged(webView: WebView?, progress: Int) {
-        val tab = browser.tabs[browser.currentIndex]
-        if (tab.fragmentOrb.webView == webView) {
+        if (browser.currentWebView == webView) {
             if (binding.progressBar.visibility == View.GONE) {
                 binding.progressBar.visible()
             }
@@ -189,10 +187,16 @@ class OrbBrowserFragment : Fragment(), BrowserListener {
     }
 
     override fun onPageStarted(view: WebView?, url: String?) {
-        binding.progressBar.visible()
+        if (browser.currentWebView == view) {
+            binding.progressBar.visible()
+            url?.also { binding.urlBar.setText(it) }
+        }
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {
-        binding.progressBar.invisible()
+        if (browser.currentWebView == view) {
+            binding.progressBar.invisible()
+            url?.also { binding.urlBar.setText(it) }
+        }
     }
 }

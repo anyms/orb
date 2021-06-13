@@ -12,7 +12,7 @@ class ViewPageAdapter(
     override fun getItemCount(): Int = tabs.size
 
     override fun createFragment(position: Int): Fragment {
-        return tabs[position].fragmentOrb
+        return tabs[position].fragment
     }
 
     override fun containsItem(itemId: Long): Boolean {

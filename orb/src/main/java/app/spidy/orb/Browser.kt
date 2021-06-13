@@ -1,6 +1,7 @@
 package app.spidy.orb
 
 import android.os.Bundle
+import android.webkit.WebView
 import app.spidy.orb.adapters.ViewPageAdapter
 import app.spidy.orb.data.Tab
 import app.spidy.orb.fragments.OrbWebViewFragment
@@ -15,6 +16,10 @@ class Browser(
 
     val tabs = ArrayList<Tab>()
     var currentIndex = 0
+    val currentTab: Tab
+        get() = tabs[currentIndex]
+    val currentWebView: WebView
+        get() = currentTab.fragment.webView
 
     fun newTab(url: String) {
         val fragment = OrbWebViewFragment()

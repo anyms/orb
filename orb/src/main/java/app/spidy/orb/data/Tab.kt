@@ -4,7 +4,7 @@ import app.spidy.orb.fragments.OrbWebViewFragment
 
 data class Tab(
     var title: String,
-    val fragmentOrb: OrbWebViewFragment,
+    val fragment: OrbWebViewFragment,
     var url: String = "",
     ) {
     val tabId: Long = kotlin.random.Random.nextLong()
