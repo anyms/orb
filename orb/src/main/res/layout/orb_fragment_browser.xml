@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Theme.Orb.TabContainerBackground"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".fragments.OrbBrowserFragment">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/tabModeToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="0dp"
+            android:layout_gravity="center"
+            android:id="@+id/newTabBtn"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                app:srcCompat="@drawable/orb_ic_add" />
+            <TextView
+                style="@style/Theme.Orb.TextColor"
+                android:textSize="16sp"
+                android:paddingEnd="10dp"
+                android:layout_gravity="center"
+                android:text="New Tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:srcCompat="@drawable/orb_ic_more_vert" />
+    </LinearLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        tools:background="@color/orb_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                app:contentInsetStartWithNavigation="0dp"
+                android:contentInsetLeft="0dp"
+                android:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:contentInsetRight="0dp"
+                android:contentInsetEnd="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetEnd="0dp"
+                android:id="@+id/toolbar"
+                app:title=""
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+                <EditText
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:hint="@string/orb_search_or_type_web_address"
+                    android:background="@drawable/orb_border_radius_url_bar"
+                    android:id="@+id/urlBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:ems="10"
+                    android:inputType="textUri" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:indicatorColor="@color/orb_accent"
+                app:layout_constraintTop_toBottomOf="@+id/app_bar_pdfview"/>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <TextView
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:textColor="@color/orb_white"
+        android:background="@drawable/orb_border_radius"
+        android:textSize="16sp"
+        android:id="@+id/clearTabsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/orb_close_all"
+        android:textStyle="bold" />
+
+</LinearLayout>

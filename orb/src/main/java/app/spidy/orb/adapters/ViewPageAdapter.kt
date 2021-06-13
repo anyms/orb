@@ -1,18 +1,18 @@
 package app.spidy.orb.adapters
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import app.spidy.orb.data.Tab
 
-class ViewPageAdapter(private val tabs: ArrayList<Tab>, activity: FragmentActivity): FragmentStateAdapter(activity) {
+class ViewPageAdapter(
+    private val tabs: ArrayList<Tab>, childFragmentManager: FragmentManager, lifecycle: Lifecycle
+): FragmentStateAdapter(childFragmentManager, lifecycle) {
     override fun getItemCount(): Int = tabs.size
 
     override fun createFragment(position: Int): Fragment {
-        return tabs[position].fragment
+        return tabs[position].fragmentOrb
     }
 
     override fun containsItem(itemId: Long): Boolean {

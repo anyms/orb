@@ -37,11 +37,12 @@ android {
 }
 
 dependencies {
-    def hiper_version = "2.0.2"
+    def hiper_version = "2.0.3"
     implementation "com.github.anyms.hiper:http:$hiper_version"
     implementation "com.github.anyms.hiper:util:$hiper_version"
-
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
     implementation 'org.adblockplus:adblock-android-webview:4.3.0'
+    implementation 'com.github.RachitShah02:Webview-Video-Fullscreen:1.0.2'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
