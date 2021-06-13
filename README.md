@@ -24,6 +24,11 @@ Add the dependency to your **app level** `build.gradle`
 implementation 'com.github.defapps:orb:1.0.1'
 ```
 
+### Configure
+
+- Make your theme to NoActionBar, because the browser has it's own toolbar
+- For the toolbar icons color, add `<item name="colorControlNormal">#ffffff</item>` to dark theme and `<item name="colorControlNormal">#000000</item>` to light theme.
+
 ### TODO
 
 - [ ] Control webview from browser
